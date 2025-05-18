@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Congratulations!</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      background: linear-gradient(to bottom right, #1a1a2e, #16213e);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+
+    /* 背景のキラキラ粒子 */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(white 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 0.03;
+      animation: moveStars 30s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveStars {
+      from {
+        transform: translate(0, 0);
+      }
+      to {
+        transform: translate(-200px, -200px);
+      }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: hsl(calc(360 * var(--hue)), 100%, 50%);
+      animation: explode 1.2s ease-out forwards;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--dx), var(--dy)) rotate(1080deg) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .center-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .center-content img {
+      max-width: 90vw;
+      max-height: 50vh;
+      width: auto;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.6);
+    }
+
+    .message {
+      font-size: 42px;
+      margin-top: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 8px #ff00ff;
+    }
+
+    .next-button {
+      margin-top: 25px;
+      padding: 16px 32px;
+      font-size: 24px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .next-button:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 中央の画像とメッセージ -->
+  <div class="center-content">
+    <img src="gotou_keita1.jpg" alt="Gotou Keita">
+    <div class="message">🎉 Congratulations 🎉</div>
+    <button class="next-button" onclick="location.href='next.html'">▶ ホームへ</button>
+  </div>
+
+  <!-- 紙吹雪エフェクト -->
+  <script>
+    function explode(x, y, count = 50) {
+      for (let i = 0; i < count; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = Math.random() * 300;
+        const dx = Math.cos(angle) * distance + 'px';
+        const dy = Math.sin(angle) * distance + 'px';
+
+        confetti.style.setProperty('--dx', dx);
+        confetti.style.setProperty('--dy', dy);
+        confetti.style.setProperty('--hue', Math.random());
+
+        confetti.style.left = x + 'px';
+        confetti.style.top = y + 'px';
+
+        document.body.appendChild(confetti);
+
+        confetti.addEventListener('animationend', () => {
+          confetti.remove();
+        });
+      }
+    }
+
+	  // 一定間隔でランダムな場所に爆発を繰り返す
+    setInterval(() => {
+		const x = Math.random() * window.innerWidth;
+		const y = Math.random() * window.innerHeight;
+		explode(x, y, 60); // 数を増やしたければ第3引数を増やす
+    }, 900); // 爆発の間隔（ms）
+
+
+  
+  </script>
+
+</body>
+</html>

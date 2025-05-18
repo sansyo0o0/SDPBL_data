@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>爆発 → Game Over 画面</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: url('TCU01.jpg') no-repeat center center/cover;
+      position: relative;
+    }
+
+    .explosion {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, yellow, orange, red, transparent);
+      box-shadow:
+        0 0 60px yellow,
+        0 0 120px orange,
+        0 0 180px red,
+        0 0 240px white;
+      transform: translate(-50%, -50%);
+      animation: explode 3s ease-out forwards;
+      z-index: 5;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        filter: blur(0);
+      }
+      30% {
+        transform: translate(-50%, -50%) scale(4);
+        filter: blur(2px);
+      }
+      70% {
+        transform: translate(-50%, -50%) scale(10);
+        opacity: 0.8;
+        filter: blur(6px);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(16);
+        opacity: 0;
+        filter: blur(10px);
+      }
+    }
+
+    .whiteout {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 2s ease-in;
+      z-index: 6;
+    }
+
+    .whiteout.show {
+      opacity: 1;
+    }
+
+    .next-button {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 16px 32px;
+      font-size: 20px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+      z-index: 10;
+    }
+
+    .next-button.show {
+      opacity: 1;
+    }
+
+    .game-over {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 64px;
+      font-weight: bold;
+      color: red;
+      text-shadow: 2px 2px 10px black;
+      opacity: 0;
+      transition: opacity 1.5s ease-in;
+      z-index: 10;
+    }
+
+    .game-over.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="explosion" id="explosion"></div>
+  <div class="whiteout" id="whiteout"></div>
+  <div class="game-over" id="gameOverText">Game Over</div>
+  <button class="next-button" id="nextBtn" onclick="location.href='nextpage.html'">次へ</button>
+
+  <script>
+    const explosion = document.getElementById('explosion');
+    const whiteout = document.getElementById('whiteout');
+    const nextBtn = document.getElementById('nextBtn');
+    const gameOverText = document.getElementById('gameOverText');
+
+    explosion.addEventListener('animationend', () => {
+      whiteout.classList.add('show');
+      setTimeout(() => {
+        gameOverText.classList.add('show');
+        nextBtn.classList.add('show');
+      }, 2000); // 白くなってから2秒後に表示
+    });
+  </script>
+
+</body>
+</html>
