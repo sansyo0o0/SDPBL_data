@@ -39,10 +39,16 @@ function checkCode() {
     isGameActive = false;
     input.disabled = true;
     defuseBtn.disabled = true;
+
+    // 正解なら t1.html に遷移
+    setTimeout(() => {
+      window.location.href = "t1.html";
+    }, 1000); // メッセージ表示のために少し待機（任意）
   } else {
-    message.textContent = "❌ コードが違う！";
+    window.location.href = "f1.html";
   }
 }
+
 
 startBtn.addEventListener("click", startGame);
 defuseBtn.addEventListener("click", checkCode);
