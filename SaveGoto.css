@@ -17,13 +17,6 @@
        z-index: -1;
     }
 
-* {
-  outline: 1px solid red; /* 要素の枠を全部表示してくれる */
-}
-
-
-
-
     h1 { em: 2em; }
     .button {
       display: block;
