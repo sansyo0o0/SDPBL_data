@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ハフマン符号クイズ①</title>
+  <link rel="stylesheet" href="q2.css">
+</head>
+<body>
+  <h1>五島慶太を救え！！</h1>
+  <h2>ハフマン符号クイズ①</h2>
+
+  <div id="game">
+    <p>次の文字とその出現頻度が与えられています。</p>
+    <table style="margin: 0 auto; border-collapse: collapse;">
+      <tr><th>文字</th><th>頻度</th></tr>
+      <tr><td>A</td><td>45</td></tr>
+      <tr><td>B</td><td>13</td></tr>
+      <tr><td>C</td><td>12</td></tr>
+      <tr><td>D</td><td>16</td></tr>
+      <tr><td>E</td><td>9</td></tr>
+      <tr><td>F</td><td>5</td></tr>
+    </table>
+    <p>ハフマン符号化した場合、文字 <strong>C</strong> に割り当てられる符号は？（例：1100）</p>
+
+    <input type="text" id="codeInput" placeholder="解除コードを入力">
+    <button id="defuseBtn">解除</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    document.getElementById("defuseBtn").addEventListener("click", function () {
+      const input = document.getElementById("codeInput").value.trim();
+      if (input === "1100") {
+        window.location.href = "t1.html";
+      } else {
+        window.location.href = "f1.html";
+      }
+    });
+  </script>
+</body>
+</html>
