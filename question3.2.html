@@ -10,7 +10,7 @@
   <h2>ハフマン符号クイズ②</h2>
 
   <div id="game">
-    <p>ビット列 <code>0110111100</code> を以下の符号表で復号してください。</p>
+    <p>ビット列 <code>011011110</code> を以下の符号表で復号してください。</p>
     <table style="margin: 0 auto; border-collapse: collapse;">
       <tr><th>文字</th><th>符号</th></tr>
       <tr><td>A</td><td>0</td></tr>
@@ -28,7 +28,7 @@
   <script>
     document.getElementById("defuseBtn").addEventListener("click", function () {
       const input = document.getElementById("codeInput").value.trim().toLowerCase();
-      if (input === "acdb") {
+      if (input === "ACDB") {
         window.location.href = "t1.html";
       } else {
         window.location.href = "f1.html";
