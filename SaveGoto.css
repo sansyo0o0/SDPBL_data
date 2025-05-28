@@ -1,12 +1,18 @@
- body {
+ html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+    } 
+body {
       position: relative;
       text-align: center; 
       font-family: sans-serif;
-      background-image: url('TCU_Rogo.jpg');
-      background-size: 100px 100px;
+      background-image: url('TCU01.jpg');
+      background-size: cover;
       background-position: center;
-      background-repeat: repeat;
-      overflow-x: hidden;
+      background-repeat: no-repeat;
     }
     body::before{
        content: "";
@@ -34,6 +40,13 @@
     .button:hover {
       background: #666;
     }
+    .button-row {
+       display: flex;
+       justify-content: center;
+       gap: 20px;
+       margin: 20px 0;
+    }
+
     hr{
       border:none;
       height:7px;
