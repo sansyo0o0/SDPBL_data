@@ -27,7 +27,7 @@
 
   <script>
     document.getElementById("defuseBtn").addEventListener("click", function () {
-      const input = document.getElementById("codeInput").value.trim().toLowerCase();
+      const input = document.getElementById("codeInput").value.trim().toUpperCase();
       if (input === "ACDB") {
         window.location.href = "t1.html?ans=question3.2";
       } else {
