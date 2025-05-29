@@ -1,4 +1,4 @@
-const stages = ["q27","question2","question3.1"];
+const stages = ["q27","question2","question3.1","question3.2","question1"];
 
 stages.forEach(stage => {
     if (localStorage.getItem(`${stage}-cleared`) === "true") {
