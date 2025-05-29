@@ -13,7 +13,7 @@ function checkCode() {
 
     // 正解なら t1.html に遷移
     setTimeout(() => {
-      window.location.href = "t1.html?goa";
+      window.location.href = "t1.html?ans=goa";
     }, 1000); // メッセージ表示のために少し待機（任意）
   } else {
     window.location.href = "f1.html";
