@@ -143,7 +143,14 @@
 		explode(x, y, 60); // 数を増やしたければ第3引数を増やす
     }, 900); // 爆発の間隔（ms）
 
-
+	  
+	  const params = new URLSearchParams(window.location.search);
+	  const ans =params.get("ans");
+	  if(ans){
+		  localStorage.setItem(`${ans}-cleared`,"true");
+	  }
+	  
+	  
   
   </script>
 
