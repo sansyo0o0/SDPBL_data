@@ -136,7 +136,7 @@
   <div class="explosion" id="explosion"></div>
   <div class="whiteout" id="whiteout"></div>
   <div class="game-over" id="gameOverText">Game Over</div>
-  <button class="back-button" id="nextBtn" onclick="backOrHub">問題に戻る</button>
+  <button class="back-button" id="backBtn" onclick="backOrHub()">問題に戻る</button>
   <button class="next-button" id="nextBtn" onclick="location.href='SaveGoto.html'">ホームへ</button>
 
   <script>
@@ -149,6 +149,7 @@
       whiteout.classList.add('show');
       setTimeout(() => {
         gameOverText.classList.add('show');
+        backBtn.classList.add('show');
         nextBtn.classList.add('show');
       }, 2000); // 白くなってから2秒後に表示
     });
