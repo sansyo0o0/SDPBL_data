@@ -33,13 +33,16 @@ body {
       background: #76e6e7;
       color: black;
       border: none;
-      border-radius: 5px;
+      border-radius: 12px;
       cursor: pointer;
       text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
     }
     .button:hover {
-      background: #666;
+      background: #ccc;
+      transform: scale(1.05)
     }
+
     .button-row {
        display: flex;
        justify-content: center;
