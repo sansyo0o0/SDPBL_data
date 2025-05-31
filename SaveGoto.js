@@ -6,7 +6,9 @@ stages.forEach(stage => {
       if (link) {
         link.style.backgroundColor = "#d4edda"; // うす緑色に変更
         link.style.color = "#155724"; // 文字色
-        link.textContent += " ✔"; // テキストにチェック追加
+        if(!link.textContent.includes("✔")) {
+            link.textContent += " ✔"; // テキストにチェック追加
+        }
       }
     }
   });
