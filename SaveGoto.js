@@ -10,3 +10,9 @@ stages.forEach(stage => {
       }
     }
   });
+
+document.getElementById("resetB").addEventListener("click", function () {  
+    localStorage.clear();  
+    location.reload(); 
+  });
+
