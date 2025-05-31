@@ -39,7 +39,7 @@ body {
       transition: background 0.3s, transform 0.2s;
     }
     .button:hover {
-      background: #ccc;
+      background: #76e6e7;
       transform: scale(1.05)
     }
 
