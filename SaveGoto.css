@@ -71,6 +71,11 @@ body {
     #resetB:hover {
      opacity: 1.0;
     }
+
+    #resetB:active{
+     transform: scale(0.95);
+     background-color: #5ecdd0;
+    }
  
 
 
